@@ -1,8 +1,8 @@
-package com.assgn.Consumer.controller;
+package com.assgn.Employee.controller;
 
-import com.assgn.Consumer.model.Employee;
-import com.assgn.Consumer.repository.EmployeeRepository;
-import com.assgn.Consumer.service.Consumer;
+import com.assgn.Employee.model.Employee;
+import com.assgn.Employee.repository.EmployeeRepository;
+import com.assgn.Employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +13,20 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/employees")
-public class Cassandra {
+public class EmployeeController {
     @Autowired
     EmployeeRepository employeeRepository;
     @Autowired
-    Consumer employeeService;
+    EmployeeService employeeService;
+
+    @PostMapping("/add")
+    public ResponseEntity addEmp(@RequestBody Employee emp){
+        Employee employee = employeeService.addEmp(emp.getId(),emp);
+        return new ResponseEntity<>(employee, HttpStatus.OK);
+    }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity saveEmp(@PathVariable("id") int id, @RequestBody Employee emp){
+    public ResponseEntity updateEmp(@PathVariable("id") int id, @RequestBody Employee emp){
         Optional<Employee> emp1 = employeeService.getById(id);
         if(emp1.isPresent()==false)
             return new ResponseEntity<>("No record found", HttpStatus.OK);

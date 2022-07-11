@@ -12,7 +12,7 @@
 	<artifactId>Consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Consumer</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Kafka Consumer project for Employees</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -53,11 +53,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-cassandra</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.hazelcast</groupId>
-			<artifactId>hazelcast-all</artifactId>
-			<version>4.2.5</version>
 		</dependency>
 	</dependencies>
 
