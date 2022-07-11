@@ -1,19 +1,14 @@
 package com.assgn.Consumer.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
 
-import java.io.Serializable;
 
-@Table("employees")
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee implements Serializable {
-    @PrimaryKey
+
+public class Employee {
     public int id;
     public String name;
     public int age;
